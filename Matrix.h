@@ -187,6 +187,21 @@ namespace fdil {
          * @param c constant to divide by
          */
         void operator/= (T c);
+
+        // dot and cross product
+        /**
+         * Does dot product with other if the dimensions work out.
+         * @param other other matrix to do dot product with
+         * @return reference to result Matrix
+         */
+        Matrix& dot(const Matrix& other) const;
+
+        /**
+         * Does cross product with other if both dimensions work out.
+         * @param other other matrix to do cross product with
+         * @return referece to result Matrix
+         */
+        Matrix& cross(const Matrix& other) const;
     };
 
 
