@@ -187,6 +187,26 @@ namespace fdil {
          * @param c constant to divide by
          */
         void operator/= (T c);
+
+        // dot and cross product
+        /**
+         * Does dot product with other if the dimensions work out.
+         * This means that *this is m x n, other is n x p and result is m x p.
+         * @param other other matrix to do dot product with
+         * @return reference to result Matrix
+         */
+        Matrix& dot(const Matrix& other) const;
+
+        /**
+         * Does cross product with other if both dimensions work out.
+         * This means both are 1 x 3 or 3 x 1 matrices (3D vectors).
+         * Can also work for 2D vectors
+         * @param other other matrix to do cross product with
+         * @return reference to result Matrix
+         */
+        Matrix& cross(const Matrix& other) const;
+        // might make a separate class for vectors, then move cross product there
+        // for 2D and 3D vectors
     };
 
 
