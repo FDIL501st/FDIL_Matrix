@@ -94,6 +94,99 @@ namespace fdil {
         friend ostream &operator<< <>(ostream &os, const Matrix &matrix);
 
         [[nodiscard]] const MatrixSize &getSize() const;
+
+        // operator overloads //
+
+        // + operator overloads
+        /**
+         * Adds a constant value to all values of this matrix.
+         * The result is stored in a new Matrix stored in heap.
+         * @param c constant to add
+         * @return reference to the result Matrix
+         */
+        Matrix& operator+ (T c) const;
+
+        /**
+         * Does addition of rhs to this matrix if the sizes are the same and
+         * store the result in a new Matrix stored in heap.
+         * @param rhs matrix to add, should have the same size as *this
+         * @return reference to the result Matrix
+         */
+        Matrix& operator+ (const Matrix& rhs) const;
+
+        // - operator overloads
+        /**
+         * Subtracts a constant value to all values of this matrix.
+         * The result is stored in a new Matrix stored in heap.
+         * @param c constant to subtract
+         * @return reference to the result Matrix
+         */
+        Matrix& operator- (T c) const;
+
+        /**
+         * Does the following subtraction : *this - rhs, if the sizes are the same and
+         * store the result in a new Matrix stored in heap.
+         * @param rhs matrix to subtract, should have the same size as *this
+         * @return reference to the result Matrix
+         */
+        Matrix& operator- (const Matrix& rhs) const;
+
+        // += operator overloads
+        /**
+         * Adds a constant to all values of matrix inplace.
+         * @param c constant to add
+         */
+        void operator+= (T c);
+
+        /**
+         * Does addition of rhs to *this inplace.
+         * @param rhs matrix to add, should have the same size as *this
+         */
+        void operator+= (const Matrix& rhs);
+
+        // -= operator overloads
+        /**
+         * Subtracts a constant to all values of this matrix inplace.
+         * @param c constant to subtract
+         */
+        void operator-= (T c);
+
+        /**
+         * Does the following subtraction in place: *this - rhs.
+         * @param rhs matrix to subtract, should have the same size as *this
+         */
+        void operator -= (const Matrix& rhs);
+
+        // * and *= operator overload
+        /**
+         * Multiplies a constant to all values of this matrix.
+         * Result in a separate matrix stored in heap.
+         * @param x constant to multiply by
+         * @return reference to result Matrix
+         */
+        Matrix& operator* (T c) const;
+
+        /**
+         * Multiplies a constant to all values of this matrix inplace.
+         * @param c constant to multiply by
+         */
+        void operator*= (T c);
+
+        // / and /= operator overload
+        /**
+         * Divides a constant to all values of this matrix.
+         * Equivalent to calling *(1/c)
+         * @param c constant to divide by
+         * @return reference to result Matrix
+         */
+        Matrix& operator/ (T c) const;
+
+        /**
+         * Divides a constant to all values of this matrix inplace.
+         * Equivalent to calling *=(1/c)
+         * @param c constant to divide by
+         */
+        void operator/= (T c);
     };
 
 
