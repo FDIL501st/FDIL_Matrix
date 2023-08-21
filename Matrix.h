@@ -1,5 +1,5 @@
 //
-// Created by fdilf on 2023-08-01.
+// Created by fdil on 2023-08-01.
 //
 
 #include <iostream>
@@ -89,7 +89,7 @@ namespace fdil {
          * Simple print function to print matrix.
          * Has an extra '\n' at the end.
          */
-        void print();
+        [[maybe_unused]] void print();
 
         friend ostream &operator<< <>(ostream &os, const Matrix &matrix);
 
@@ -207,7 +207,7 @@ namespace fdil {
     }
 
     template<typename T>
-    void Matrix<T>::print() {
+    [[maybe_unused]] void Matrix<T>::print() {
         for (int i = 0; i < sizeM.getM(); ++i) {
             for (int j = 0; j < sizeM.getN(); ++j) {
                 cout << matrixM.at(i).at(j) << ' ';
